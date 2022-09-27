@@ -1,135 +1,177 @@
 package com.nest.hotel;
 
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Coffeeshop {
+    static int total;
+
+
+
+
+    int tea, sweetPorotta, cake, juice, iceCream;
+
+    public Coffeeshop(int tea, int sweetPorotta, int cake, int juice, int iceCream) {
+        this.tea = tea;
+        this.sweetPorotta = sweetPorotta;
+        this.cake = cake;
+        this.juice = juice;
+        this.iceCream = iceCream;
+    }
+
+    public int getTea() {
+        return tea;
+    }
+
+    public int getSweetPorotta() {
+        return sweetPorotta;
+    }
+
+    public int getCake() {
+        return cake;
+    }
+
+    public int getJuice() {
+        return juice;
+    }
+
+    public int getIceCream() {
+        return iceCream;
+    }
     public static void main(String[] args) {
-        int m,choice,q;
-        ArrayList itemName = new ArrayList<>();
-        ArrayList qunatity = new ArrayList<>();
-        ArrayList price = new ArrayList<>();
-        Items dineIn = new Items(12,50,78);
-        Items takeAway = new Items(7, 6, 11);
-        Scanner in = new Scanner(System.in);
 
-        System.out.println("Select mode");
-        System.out.println("1. DineIn");
-        System.out.println("2. Takeaway");
-        System.out.println("3. Exit");
-        m = in.nextInt();
-        switch (m){
+        Coffeeshop food = new Coffeeshop(10, 15, 20, 10, 25);
+        Coffeeshop takeaway = new Coffeeshop(15, 20, 25, 15, 30);
+        int y;
+
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("enter the choice");
+
+        System.out.println("1. food");
+        System.out.println("2.take away");
+        System.out.println("3.exit");
+        y=s.nextInt();
+
+        switch(y)
+
+        {
+
             case 1:
-                while(true){
+                while (true) {
+                    System.out.println("\n\n\n1.Tea " + food.getTea());
+                    System.out.println("2.juice " + food.getJuice());
+                    System.out.println("3.cake " + food.getCake());
+                    System.out.println("4.Sweet Porotta " + food.getSweetPorotta());
+                    System.out.println("5.ice cream " + food.getIceCream());
+                    System.out.println("6.BILL");
+                    System.out.println("7.Clear BILL");
+                    System.out.println("8.exit");
+                    int m = s.nextInt();
 
-                    System.out.println("Select an Option: ");
-                    System.out.println("1. Black Coffee :"+dineIn.getCoffee());
-                    System.out.println("2. Black Tea :"+dineIn.getShake());
-                    System.out.println("3. Tea :"+dineIn.getSandwitch());
-                    System.out.println("4. Bill");
-                    System.out.println("5. Exit");
-
-                    choice = in.nextInt();
-                    switch (choice){
-
+                    switch (m) {
                         case 1:
-                            System.out.println("Enter the qty");
-                            q = in.nextInt();
-                            itemName.add(" Coffee");
-                            qunatity.add(q);
-                            price.add(q* dineIn.getCoffee());
+                            System.out.println("how many quantity");
+                            int l = s.nextInt();
+                            total = (food.tea * l) + total;
                             break;
                         case 2:
-                            System.out.println("Enter the qty");
-                            q = in.nextInt();
-                            itemName.add("Shake");
-                            qunatity.add(q);
-                            price.add(q* dineIn.getShake());
+                            System.out.println("how many quantity");
+                            int p = s.nextInt();
+                            total = (food.juice * p) + total;
                             break;
                         case 3:
-                            System.out.println("Enter the qty");
-                            q = in.nextInt();
-                            itemName.add("Sandwitch");
-                            qunatity.add(q);
-                            price.add(q*dineIn.getSandwitch());
+                            System.out.println("how many quantity");
+                            int q = s.nextInt();
+                            total = (food.cake * q) + total;
                             break;
-
-
                         case 4:
-                            System.out.println("******************");
-                            System.out.println("Item Qty Price");
-                            int sum = 0;
-                            for (int i = 0; i <= itemName.size()-1; i++) {
-                                System.out.println(itemName.get(i)+" "+qunatity.get(i)+" :"+price.get(i));
-
-                            }
-                            System.out.println("Total is "+sum);
-                            sum=0;
-                            System.exit(0);
-                        case 5:
-                            System.exit(0);
-                        default:
-                            System.out.println("Invalid Choice");
+                            System.out.println("how many quantity");
+                            int w = s.nextInt();
+                            total = (food.sweetPorotta * w) + total;
                             break;
+                        case 5:
+                            System.out.println("how many quantity");
+                            int e = s.nextInt();
+                            total = (food.iceCream * e) + total;
+                            break;
+                        case 6:
+
+                            System.out.println("Total Bill :" + total);
+                            break;
+                        case 7:
+                            total = 0;
+                            System.out.println("Bill reseted");
+                            break;
+                        case 8:
+                            System.exit(0);
+                            break;
+                        default:
+                            System.out.println("invalid input");
+
+
                     }
                 }
             case 2:
-                while(true){
+                while (true) {
+                    System.out.println("\n\n\n1.Tea " + takeaway.getTea());
+                    System.out.println("2.juice " + takeaway.getJuice());
+                    System.out.println("3.cake " + takeaway.getCake());
+                    System.out.println("4.Sweet Porotta " + takeaway.getSweetPorotta());
+                    System.out.println("5.ice cream " + takeaway.getIceCream());
+                    System.out.println("6.BILL");
+                    System.out.println("7.Clear BILL");
+                    System.out.println("8.exit");
 
-                    System.out.println("Select an Option: ");
-                    System.out.println("1. Coffee :"+takeAway.getCoffee());
-                    System.out.println("2. Shake :"+takeAway.getShake());
-                    System.out.println("3. Sandwitch :"+takeAway.getSandwitch());
+                    int m = s.nextInt();
 
-                    System.out.println("4. Bill");
-                    System.out.println("5. Exit");
-
-                    choice = in.nextInt();
-                    switch (choice){
-
+                    switch (m) {
                         case 1:
-                            System.out.println("Enter the qty");
-                            q = in.nextInt();
-                            itemName.add("Coffee");
-                            qunatity.add(q);
-                            price.add(q*takeAway.getCoffee());
+                            System.out.println("how many quantity");
+                            int l = s.nextInt();
+                            total = (food.tea * l) + total;
                             break;
                         case 2:
-                            System.out.println("Enter the qty");
-                            q = in.nextInt();
-                            itemName.add("Shake");
-                            qunatity.add(q);
-                            price.add(q* takeAway.getShake());
+                            System.out.println("how many quantity");
+                            int p = s.nextInt();
+                            total = (food.juice * p) + total;
                             break;
                         case 3:
-                            System.out.println("Enter the qty");
-                            q = in.nextInt();
-                            itemName.add("Sandwitch");
-                            qunatity.add(q);
-                            price.add(q* takeAway.getSandwitch());
+                            System.out.println("how many quantity");
+                            int q = s.nextInt();
+                            total = (food.cake * q) + total;
                             break;
-
                         case 4:
-                            System.out.println("******************");
-                            System.out.println("Item Qty Price");
-                            int sum = 0;
-                            for (int i = 0; i <= itemName.size()-1; i++) {
-                                System.out.println(itemName.get(i)+" "+qunatity.get(i)+" :"+price.get(i));
-
-                            }
-                            System.out.println("Total is "+sum);
-                            sum=0;
-                            System.exit(0);
-                        case 5:
-                            System.exit(0);
-                        default:
-                            System.out.println("Invalid Choice");
+                            System.out.println("how many quantity");
+                            int w = s.nextInt();
+                            total = (food.sweetPorotta * w) + total;
                             break;
+                        case 5:
+                            System.out.println("how many quantity");
+                            int e = s.nextInt();
+                            total = (food.iceCream * e) + total;
+                            break;
+                        case 6:
+
+                            System.out.println("Total Bill :" + total);
+                            break;
+                        case 7:
+                            total = 0;
+                            System.out.println("Bill reseted");
+                            break;
+                        case 8:
+                            System.exit(0);
+                            break;
+                        default:
+                            System.out.println("invalid input");
+
                     }
                 }
             case 3:
                 System.exit(0);
-        }
+                break;
 
-    }
-}
+            default:
+                System.out.println("invalid input");
+        }
+    }}
