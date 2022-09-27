@@ -1,6 +1,8 @@
 package com.nest.hotel;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Coffeeshop {
@@ -45,7 +47,10 @@ public class Coffeeshop {
 
         Coffeeshop food = new Coffeeshop(10, 15, 20, 10, 25);
         Coffeeshop takeaway = new Coffeeshop(15, 20, 25, 15, 30);
-        Coffeeshop view = new Coffeeshop(25,60,80,90,40);
+    //    Coffeeshop view = new Coffeeshop(25,60,80,90,40);
+
+        HashMap<String,String> map=new HashMap<String, String>();
+        ArrayList<String> transactionlist=new ArrayList<>();
         int y;
 
         Scanner s = new Scanner(System.in);
@@ -56,6 +61,7 @@ public class Coffeeshop {
         System.out.println("2.take away");
         System.out.println("3.exit");
         y=s.nextInt();
+
 
         switch(y)
 
@@ -162,6 +168,16 @@ public class Coffeeshop {
                         case 7:
                             total = 0;
                             System.out.println("Bill reseted");
+                            map.put("customer","Elda");
+                            map.put("Amount","123");
+                            map.put("Elda","123");
+                            transactionlist.add(map);
+                            System.out.println("Total is"+sum);
+                            int sum=0;
+                            System.exit(0);
+
+
+
                             break;
                         case 8:
                             System.exit(0);
