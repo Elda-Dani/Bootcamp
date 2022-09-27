@@ -45,6 +45,7 @@ public class Coffeeshop {
 
         Coffeeshop food = new Coffeeshop(10, 15, 20, 10, 25);
         Coffeeshop takeaway = new Coffeeshop(15, 20, 25, 15, 30);
+        Coffeeshop view = new Coffeeshop(25,60,80,90,40);
         int y;
 
         Scanner s = new Scanner(System.in);
@@ -171,6 +172,7 @@ public class Coffeeshop {
                     }
                 }
             case 3:
+
                 System.exit(0);
                 break;
 
