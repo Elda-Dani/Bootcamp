@@ -38,7 +38,10 @@ public class Coffeeshop {
     public int getIceCream() {
         return iceCream;
     }
+
     public static void main(String[] args) {
+
+
 
         Coffeeshop food = new Coffeeshop(10, 15, 20, 10, 25);
         Coffeeshop takeaway = new Coffeeshop(15, 20, 25, 15, 30);
