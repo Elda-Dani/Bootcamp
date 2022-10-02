@@ -6,7 +6,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Coffeeshop {
-    static int total;
+    static int total=0;
+    String customername;
+
 
 
 
@@ -50,7 +52,7 @@ public class Coffeeshop {
     //    Coffeeshop view = new Coffeeshop(25,60,80,90,40);
 
         HashMap<String,String> map=new HashMap<String, String>();
-        ArrayList<String> transactionlist=new ArrayList<>();
+        ArrayList<String> transactionList=new ArrayList<>();
         int y;
 
         Scanner s = new Scanner(System.in);
@@ -110,9 +112,15 @@ public class Coffeeshop {
                             System.out.println("Total Bill :" + total);
                             break;
                         case 7:
-                            total = 0;
-                            System.out.println("Bill reseted");
-                            break;
+                            System.out.println("enter your name");
+                            String customername=s.next();
+                            map.put("customer name",customername);
+                                    map.put("Amount",String.valueOf(total));
+
+                            transactionList.add(String.valueOf(map));
+                            map.put("mode","dyining");
+                            transactionList.add(String.valueOf(map));
+                            System.out.println("Total is"+total);
                         case 8:
                             System.exit(0);
                             break;
@@ -166,15 +174,17 @@ public class Coffeeshop {
                             System.out.println("Total Bill :" + total);
                             break;
                         case 7:
-                            total = 0;
-                            System.out.println("Bill reseted");
-                            map.put("customer","Elda");
-                            map.put("Amount","123");
-                            map.put("Elda","123");
-                            transactionlist.add(map);
-                            System.out.println("Total is"+sum);
-                            int sum=0;
-                            System.exit(0);
+
+                            System.out.println("enter your name");
+                            String customername=s.next();
+                            map.put("customer name",customername);
+                                    map.put("Amount",String.valueOf(total));
+
+                            transactionList.add(String.valueOf(map));
+                            map.put("mode","dyining");
+                            transactionList.add(String.valueOf(map));
+                            System.out.println("Total is"+total);
+                            System.out.println(map);
 
 
 
@@ -189,10 +199,7 @@ public class Coffeeshop {
                 }
             case 3:
 
-                System.exit(0);
-                break;
+                System.out.println(transactionList);
 
-            default:
-                System.out.println("invalid input");
         }
     }}
