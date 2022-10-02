@@ -1,10 +1,14 @@
 package com.nest.hotel;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Coffeeshop {
-    static int total;
+    static int total=0;
+    String customername;
+
 
 
 
@@ -45,6 +49,10 @@ public class Coffeeshop {
 
         Coffeeshop food = new Coffeeshop(10, 15, 20, 10, 25);
         Coffeeshop takeaway = new Coffeeshop(15, 20, 25, 15, 30);
+    //    Coffeeshop view = new Coffeeshop(25,60,80,90,40);
+
+        HashMap<String,String> map=new HashMap<String, String>();
+        ArrayList<String> transactionList=new ArrayList<>();
         int y;
 
         Scanner s = new Scanner(System.in);
@@ -55,6 +63,7 @@ public class Coffeeshop {
         System.out.println("2.take away");
         System.out.println("3.exit");
         y=s.nextInt();
+
 
         switch(y)
 
@@ -103,9 +112,15 @@ public class Coffeeshop {
                             System.out.println("Total Bill :" + total);
                             break;
                         case 7:
-                            total = 0;
-                            System.out.println("Bill reseted");
-                            break;
+                            System.out.println("enter your name");
+                            String customername=s.next();
+                            map.put("customer name",customername);
+                                    map.put("Amount",String.valueOf(total));
+
+                            transactionList.add(String.valueOf(map));
+                            map.put("mode","dyining");
+                            transactionList.add(String.valueOf(map));
+                            System.out.println("Total is"+total);
                         case 8:
                             System.exit(0);
                             break;
@@ -159,8 +174,20 @@ public class Coffeeshop {
                             System.out.println("Total Bill :" + total);
                             break;
                         case 7:
-                            total = 0;
-                            System.out.println("Bill reseted");
+
+                            System.out.println("enter your name");
+                            String customername=s.next();
+                            map.put("customer name",customername);
+                                    map.put("Amount",String.valueOf(total));
+
+                            transactionList.add(String.valueOf(map));
+                            map.put("mode","dyining");
+                            transactionList.add(String.valueOf(map));
+                            System.out.println("Total is"+total);
+                            System.out.println(map);
+
+
+
                             break;
                         case 8:
                             System.exit(0);
@@ -171,10 +198,8 @@ public class Coffeeshop {
                     }
                 }
             case 3:
-                System.exit(0);
-                break;
 
-            default:
-                System.out.println("invalid input");
+                System.out.println(transactionList);
+
         }
     }}
